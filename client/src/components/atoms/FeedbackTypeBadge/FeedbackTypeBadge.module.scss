@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  font-size: 12px;
+  border-radius: 5px;
+  padding:2px 5px;
+  text-transform: capitalize;
+  color:white;
+}
+
+.bug {
+  @extend .container;
+  background-color: orangered;
+  width: 50px;
+}
+
+.modification {
+  @extend .container;
+  background-color: blueviolet;
+  width: 100px;
+}
+
+.new_feature {
+  @extend .container;
+  background-color: green;
+  width: 90px;
+}

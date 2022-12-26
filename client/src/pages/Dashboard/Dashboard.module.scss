@@ -1,0 +1,23 @@
+.container {
+  padding-top: 52px;
+  height: calc(100vh - 116px);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 35px;
+}
+
+.light {
+  @extend .container;
+  background-color: #eee;
+  color: black;
+}
+
+.dark {
+  @extend .container;
+  background-color: #333;
+  color: white
+}

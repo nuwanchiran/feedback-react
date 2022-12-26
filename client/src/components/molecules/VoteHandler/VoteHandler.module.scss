@@ -1,0 +1,19 @@
+.votes {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  font-size: 14px;
+
+  .btns {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+
+    .btn {
+      cursor: pointer;
+      font-size: 12px
+    }
+  }
+}

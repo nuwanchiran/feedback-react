@@ -1,0 +1,28 @@
+.container {
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: space-between;
+  background-color: #444;
+  padding: 10px 20px;
+  border-radius: 5px;
+
+  .trashIcon {
+    cursor: pointer;
+  }
+
+  .info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+.light {
+  @extend .container;
+  background-color: #ddd;
+}
+
+.dark {
+  @extend .container;
+  background-color: #555;
+}

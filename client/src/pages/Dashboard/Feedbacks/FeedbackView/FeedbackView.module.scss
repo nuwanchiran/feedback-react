@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+
+  .heading {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    h1 {
+      font-size: 32px;
+    }
+  }
+}
+
+.subInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

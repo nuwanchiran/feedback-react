@@ -1,0 +1,60 @@
+.RegisterUser {
+  width: 100%;
+  display: flex;
+  padding-top: 52px;
+  height: calc(100vh - 116px);
+  justify-content: center;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+
+    .heading {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+
+      .headingTitle {
+        font-weight: 400;
+        font-size: 22px;
+      }
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 320px;
+    }
+  }
+}
+
+.dark {
+  @extend .RegisterUser;
+  background-color: #111;
+
+  .headingTitle {
+    color: #bbb;
+  }
+
+  .headingIcon {
+    color: #bbb;
+  }
+}
+
+.light {
+  @extend .RegisterUser;
+  background-color: #eee;
+
+  .headingTitle {
+    color: #555;
+  }
+
+  .headingIcon {
+    color: #555;
+  }
+}

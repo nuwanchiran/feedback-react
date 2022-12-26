@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img{
+  border-radius: 50%;
+}
+
+.default_circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+  background-color: #444;
+  border-radius: 50%;
+  color: white;
+}

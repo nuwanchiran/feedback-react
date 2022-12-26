@@ -1,0 +1,43 @@
+.container {
+  width: 100%;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 10px;
+  color: #333;
+  border-radius: 5px;
+  border: none;
+  transition: .2s;
+
+}
+
+.ripple {
+  width: 100%;
+
+  &:hover {
+    opacity: 0.92;
+  }
+}
+
+.light {
+  @extend .container;
+  color: #333;
+  background-color: #ddd;
+}
+
+.dark {
+  @extend .container;
+  color: #eee;
+  background-color: #444;
+}
+
+.danger {
+  @extend .container;
+  color: #eee;
+  background-color: tomato;
+}
+
+.submit {
+  @extend .container;
+  color: #eee;
+  background-color: dodgerblue;
+}
