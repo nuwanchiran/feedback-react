@@ -26,7 +26,7 @@ const useAuth = () => {
   useEffect( () => {
     if ( isError ) toast.error( "Error submitting the form..." )
 
-    if ( isSuccess && user ) navigate( '/' )
+    if ( isSuccess && user ) navigate( '/dashboard' )
 
     dispatch( reset() )
   }, [dispatch, isError, isSuccess, navigate, user] )
