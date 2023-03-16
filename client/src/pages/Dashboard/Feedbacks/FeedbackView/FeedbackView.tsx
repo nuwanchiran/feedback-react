@@ -5,7 +5,6 @@ import FeedbackTypeBadge from '../../../../components/atoms/FeedbackTypeBadge/Fe
 import CommentForm from '../../../../components/organisms/CommentForm/CommentForm'
 import CommentList from '../../../../components/organisms/CommentList/CommentList'
 import useEffectOnce from '../../../../hooks/useEffectOnce'
-import {commentActions} from '../../../../stores/comment/comment.slice'
 import {Feedback} from '../../../../stores/feedback/feedback.type'
 import s from './FeedbackView.module.scss'
 
