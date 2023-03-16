@@ -1,18 +1,16 @@
-import s from './CommentForm.module.scss'
 import {ChangeEventHandler, FormEventHandler, useState} from 'react'
 import {useDispatch} from 'react-redux'
 import {useLocation} from 'react-router-dom'
-import {AppDispatch} from '../../../stores'
-import {addComment} from '../../../stores/comment/comment.thunk'
 import {Comment} from '../../../stores/comment/comment.type'
 import AppButton from '../../atoms/AppButton/AppButton'
 import AppInput from '../../atoms/AppInput/AppInput'
+import s from './CommentForm.module.scss'
 
 type Props = {}
 
 const CommentForm = (props: Props) => {
   const {state} = useLocation()
-  const dispatch = useDispatch<AppDispatch>()
+  const dispatch = useDispatch()
 
   const [form, setForm] = useState<Comment>({
     description: '',
@@ -27,8 +25,7 @@ const CommentForm = (props: Props) => {
     e.preventDefault()
 
     if(!form.feedback) return
-
-    dispatch(addComment(form))
+    dispatch({type: 'comment/add', payload: {comment:form}})
   }
   return (
     <form onSubmit={handleSubmit} className={s.container}>

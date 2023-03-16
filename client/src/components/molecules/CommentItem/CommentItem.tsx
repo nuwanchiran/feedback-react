@@ -1,8 +1,6 @@
 import {FaTrash} from 'react-icons/fa'
 import {useDispatch} from 'react-redux'
 import useTheme from '../../../hooks/useTheme'
-import {AppDispatch} from '../../../stores'
-import {deleteComment} from '../../../stores/comment/comment.thunk'
 import {Comment} from '../../../stores/comment/comment.type'
 import AppProfile from '../../atoms/AppProfile/AppProfile'
 import s from './CommentItem.module.scss'
@@ -11,10 +9,10 @@ type Props = Comment&{}
 
 const CommentItem = (props: Props) => {
   const {theme} = useTheme()
-  const dispatch = useDispatch<AppDispatch>()
+  const dispatch = useDispatch()
   
   const handleRemoveComment = () => { 
-    dispatch(deleteComment(props))
+    dispatch({type: 'comment/delete', payload: {comment:props}})
   }
 
   return (
