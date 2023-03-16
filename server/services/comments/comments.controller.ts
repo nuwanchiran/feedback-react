@@ -28,7 +28,9 @@ export const addComment = asyncHandler( async ( req, res, _next ) => {
     owner: req.body.authData._id
   } )
 
-  res.status( 200 ).json( {...comment, owner: {...req.body.authData}} )
+  const res_comment = await Comment.findById( comment._id ).populate( "owner", "-password" )
+
+  res.status( 200 ).send( res_comment )
 } )
 
 

@@ -18,6 +18,7 @@ export const getCommentsByFeedback = createAsyncThunk( 'comment/getByFeedback', 
 export const addComment = createAsyncThunk( 'comment/Add', async ( comment: Comment, thunkApi ) => {
   try {
     const res = await commentAPI.addComment( comment )
+    console.log( res.data )
     return res.data
   } catch ( error ) {
     thunkApi.rejectWithValue( error )
