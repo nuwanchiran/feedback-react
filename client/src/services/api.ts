@@ -5,6 +5,9 @@ const localStoreUser = localStorage.getItem( 'user' )
 
 let token;
 
+
+// api test
+
 if ( localStoreUser ) {
   token = ( JSON.parse( localStoreUser ) as User ).token
 }
