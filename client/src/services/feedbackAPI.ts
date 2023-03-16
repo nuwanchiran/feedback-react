@@ -1,19 +1,19 @@
 import {Feedback} from './../stores/feedback/feedback.type';
-import api from './api';
+import http from './api';
 
 const URL = 'feedbacks/'
 
 const getByUser = async () =>
-  await api.get( URL )
+  await http.get( URL )
 
 const add = async ( feedback: Feedback ) =>
-  await api.post( URL, feedback )
+  await http.post( URL, feedback )
 
 const edit = async ( feedback: Feedback ) =>
-  await api.put( URL, feedback )
+  await http.put( URL, feedback )
 
 const deleteOne = async ( feedback: Feedback ) =>
-  await api.delete( URL + feedback._id )
+  await http.delete( URL + feedback._id )
 
 const feedbackAPI = {
   getByUser,

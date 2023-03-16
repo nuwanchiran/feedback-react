@@ -5,14 +5,11 @@ const localStoreUser = localStorage.getItem( 'user' )
 
 let token;
 
-
-// api test
-
 if ( localStoreUser ) {
   token = ( JSON.parse( localStoreUser ) as User ).token
 }
 
-const api = axios.create( {
+const http = axios.create( {
   baseURL: 'http://localhost:9000/api/',
   timeout: 1000,
   headers: {
@@ -20,4 +17,4 @@ const api = axios.create( {
   }
 } )
 
-export default api
+export default http

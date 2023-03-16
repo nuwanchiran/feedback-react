@@ -1,8 +1,8 @@
 import {User} from '../stores/auth/auth.type';
-import api from './api';
+import http from './api';
 
-const register = async ( user: User ) => await api.post<User>( 'users', user )
-const login = async ( user: User ) => await api.post<User>( 'users/login', user )
+const register = async ( user: User ) => await http.post<User>( 'users', user )
+const login = async ( user: User ) => await http.post<User>( 'users/login', user )
 
 const authAPI = {
   register,
