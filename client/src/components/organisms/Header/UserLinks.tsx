@@ -23,7 +23,7 @@ const UserLinks = ( props: Props ) => {
 
   const styleChange = ( {isActive}: {isActive: boolean} ) => isActive ? s.activeLink : s.link
 
-  return user && (
+  return user ? (
     <>
       <li>
         <NavLink className={styleChange} to={'/dashboard'}>
@@ -35,7 +35,7 @@ const UserLinks = ( props: Props ) => {
         <AppProfile text={user.name} size={35} />
       </li>
     </>
-  )
+  ):<></>
 }
 
 export default UserLinks

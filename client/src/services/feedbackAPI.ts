@@ -1,5 +1,5 @@
 import {Feedback} from './../stores/feedback/feedback.type';
-import http from './api';
+import http from './http';
 
 const URL = 'feedbacks/'
 

@@ -9,7 +9,7 @@ export type User = {
 }
 
 export type AuthState = {
-  user: User | null,
+  user: User | undefined,
   isError: boolean,
   isSuccess: boolean,
   isLoading: boolean,

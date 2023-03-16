@@ -1,9 +1,12 @@
 import {createSlice} from '@reduxjs/toolkit';
+import Cookies from 'universal-cookie';
 import {login, logout, register} from './auth.thunk';
 import {AuthState, User} from './auth.type';
 
-// get user from local storage
-const user: User = JSON.parse( localStorage.getItem( 'user' ) as string )
+const cookie = new Cookies()
+
+// get user from cookie storage
+const user: User | undefined = cookie.get( "user" )
 
 const initialState: AuthState = {
   user: user,
@@ -59,7 +62,7 @@ export const authSlice = createSlice( {
 
     //logout builder
     builder.addCase( logout.fulfilled, ( state ) => {
-      state.user = null
+      state.user = undefined
     } )
   }
 } )
