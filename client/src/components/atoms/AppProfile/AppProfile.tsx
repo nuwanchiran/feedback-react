@@ -18,7 +18,7 @@ const AppProfile = ( props: Props ) => {
     <article className={s.container}>
       {url ?
         <img src={url} width={size} height={size} alt="" srcSet="" className={s.img} /> :
-        <div style={default_div_styles} className={s.default_circle}>{text[0]}</div>
+        <div style={default_div_styles} className={s.default_circle}>{text&&text[0]}</div>
       }
     </article>
   )

@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {getCommentsByFeedback, addComment, deleteComment} from './comment.thunk';
+import {addComment, deleteComment, getCommentsByFeedback} from './comment.thunk';
 import {CommentStateType} from './comment.type';
 
 const initialState: CommentStateType = {
@@ -13,9 +13,7 @@ const initialState: CommentStateType = {
 export const commentSlice = createSlice( {
   name: 'comments',
   initialState,
-  reducers: {
-    reset: ( state ) => state = initialState
-  },
+  reducers: {},
   extraReducers( builder ) {
 
     // fetch comments
@@ -72,7 +70,5 @@ export const commentSlice = createSlice( {
       } )
   },
 } )
-
-export const {reset} = commentSlice.actions
 
 export default commentSlice.reducer

@@ -90,6 +90,4 @@ export const feedbackSlice = createSlice( {
   },
 } )
 
-export const {reset} = feedbackSlice.actions
-
 export default feedbackSlice.reducer

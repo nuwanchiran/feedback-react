@@ -3,7 +3,6 @@ import {useDispatch} from 'react-redux'
 import {NavLink, useNavigate} from 'react-router-dom'
 import useAuth from '../../../hooks/useAuth'
 import {AppDispatch} from '../../../stores'
-import {reset} from '../../../stores/auth/auth.slice'
 import {logout} from '../../../stores/auth/auth.thunk'
 import AppProfile from '../../atoms/AppProfile/AppProfile'
 import s from './Header.module.scss'
@@ -17,7 +16,6 @@ const UserLinks = ( props: Props ) => {
 
   const handleLogout = () => {
     dispatch( logout() )
-    dispatch( reset() )
     navigate( '/' )
   }
 

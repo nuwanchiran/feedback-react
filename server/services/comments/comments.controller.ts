@@ -28,7 +28,7 @@ export const addComment = asyncHandler( async ( req, res, _next ) => {
     owner: req.body.authData._id
   } )
 
-  res.status( 200 ).send( comment )
+  res.status( 200 ).json( {...comment, owner: {...req.body.authData}} )
 } )
 
 
