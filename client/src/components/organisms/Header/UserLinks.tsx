@@ -1,21 +1,17 @@
 import {AiOutlineDashboard, AiOutlinePoweroff} from 'react-icons/ai'
-import {useDispatch} from 'react-redux'
 import {NavLink, useNavigate} from 'react-router-dom'
 import useAuth from '../../../hooks/useAuth'
-import {AppDispatch} from '../../../stores'
-import {logout} from '../../../stores/auth/auth.thunk'
 import AppProfile from '../../atoms/AppProfile/AppProfile'
 import s from './Header.module.scss'
 
 type Props = {}
 
 const UserLinks = ( props: Props ) => {
-  const dispatch = useDispatch<AppDispatch>()
   const navigate = useNavigate()
-  const {user} = useAuth()
+  const {user,handleLogout} = useAuth()
 
-  const handleLogout = () => {
-    dispatch( logout() )
+  const logout = () => {
+    handleLogout()
     navigate( '/' )
   }
 
@@ -28,7 +24,7 @@ const UserLinks = ( props: Props ) => {
           <AiOutlineDashboard /> Dashboard
         </NavLink>
       </li>
-      <li onClick={handleLogout}>
+      <li onClick={logout}>
         <AiOutlinePoweroff />
         <AppProfile text={user.name} size={35} />
       </li>

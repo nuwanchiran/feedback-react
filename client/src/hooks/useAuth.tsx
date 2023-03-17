@@ -2,8 +2,7 @@ import {ChangeEventHandler, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {toast} from 'react-toastify'
 import {AppDispatch, RootState} from '../stores'
-import {login, register} from '../stores/auth/auth.thunk'
-import {User} from '../stores/auth/auth.type'
+import {AuthActionType, User} from '../stores/auth/auth.type'
 
 const useAuth = () => {
   const authState = useSelector( ( state: RootState ) => state.auth )
@@ -29,7 +28,8 @@ const useAuth = () => {
 
   // login
   const handleLogin = () => {
-    if ( form.email && form.password ) dispatch( login( form ) )
+    if ( form.email && form.password ) 
+      dispatch( {type:AuthActionType.login,payload:{user:form}} )
   }
 
   // register
@@ -40,7 +40,13 @@ const useAuth = () => {
       return toast.error( "Passwords don't match." )
     }
 
-    if ( email && password && name ) dispatch( register( form ) )
+    if ( email && password && name ) 
+      dispatch( {type:AuthActionType.register,payload:{user:form}} )
+  }
+
+  // logout
+  const handleLogout = () => { 
+    dispatch({type:AuthActionType.logout})
   }
 
   return {
@@ -49,6 +55,7 @@ const useAuth = () => {
     handleFormChange,
     handleLogin,
     handleRegister,
+    handleLogout,
     confirmPassword,
     handleConfirmPasswordChange
   }

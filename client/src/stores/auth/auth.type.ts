@@ -10,8 +10,11 @@ export type User = {
 
 export type AuthState = {
   user: User | undefined,
-  isError: boolean,
-  isSuccess: boolean,
   isLoading: boolean,
-  message: unknown
+}
+
+export enum AuthActionType {
+  login = "user/login",
+  register = "user/register",
+  logout = "user/logout"
 }
