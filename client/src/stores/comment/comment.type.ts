@@ -12,3 +12,9 @@ export type CommentStateType = {
   isLoading: boolean,
   message: unknown
 }
+
+export enum CommentActionType {
+  getByFeedback = "comment/getByFeedback",
+  add = "comment/add",
+  delete = "comment/delete"
+}

@@ -1,7 +1,7 @@
 import {ChangeEventHandler, FormEventHandler, useState} from 'react'
 import {useDispatch} from 'react-redux'
 import {useLocation} from 'react-router-dom'
-import {Comment} from '../../../stores/comment/comment.type'
+import {Comment, CommentActionType} from '../../../stores/comment/comment.type'
 import AppButton from '../../atoms/AppButton/AppButton'
 import AppInput from '../../atoms/AppInput/AppInput'
 import s from './CommentForm.module.scss'
@@ -25,7 +25,7 @@ const CommentForm = (props: Props) => {
     e.preventDefault()
 
     if(!form.feedback) return
-    dispatch({type: 'comment/add', payload: {comment:form}})
+    dispatch({type: CommentActionType.add, payload: {comment:form}})
   }
   return (
     <form onSubmit={handleSubmit} className={s.container}>

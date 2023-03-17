@@ -5,6 +5,7 @@ import FeedbackTypeBadge from '../../../../components/atoms/FeedbackTypeBadge/Fe
 import CommentForm from '../../../../components/organisms/CommentForm/CommentForm'
 import CommentList from '../../../../components/organisms/CommentList/CommentList'
 import useEffectOnce from '../../../../hooks/useEffectOnce'
+import {CommentActionType} from '../../../../stores/comment/comment.type'
 import {Feedback} from '../../../../stores/feedback/feedback.type'
 import s from './FeedbackView.module.scss'
 
@@ -16,7 +17,7 @@ const FeedbackView = ( props: Props ) => {
   const dispatch = useDispatch()
 
   useEffectOnce(()=>{
-    dispatch({type: 'comment/getByFeedback', payload: {feedback:state}})
+    dispatch({type: CommentActionType.getByFeedback, payload: {feedback:state}})
   })
 
   return (

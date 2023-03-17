@@ -4,7 +4,7 @@ import {call, put, takeLatest} from 'redux-saga/effects';
 import commentAPI from '../../services/commentAPI';
 import {Feedback} from './../feedback/feedback.type';
 import {commentActions} from './comment.slice';
-import {Comment} from './comment.type';
+import {Comment, CommentActionType} from './comment.type';
 
 // fetch
 function* fetchByFeedback( action: PayloadAction<{feedback: Feedback}> ) {
@@ -38,9 +38,9 @@ function* remove( action: PayloadAction<{comment: Comment}> ) {
 }
 
 function* commentWatcher() {
-  yield takeLatest( "comment/getByFeedback", fetchByFeedback )
-  yield takeLatest( "comment/add", add )
-  yield takeLatest( "comment/delete", remove )
+  yield takeLatest( CommentActionType.getByFeedback, fetchByFeedback )
+  yield takeLatest( CommentActionType.add, add )
+  yield takeLatest( CommentActionType.delete, remove )
 }
 
 export default commentWatcher
