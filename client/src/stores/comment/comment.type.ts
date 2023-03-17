@@ -14,7 +14,7 @@ export type CommentStateType = {
 }
 
 export enum CommentActionType {
-  getByFeedback = "comment/getByFeedback",
-  add = "comment/add",
-  delete = "comment/delete"
+  getByFeedback = "comments/getByFeedback",
+  add = "comments/add",
+  delete = "comments/delete"
 }
