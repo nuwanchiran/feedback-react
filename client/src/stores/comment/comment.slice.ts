@@ -16,7 +16,7 @@ export const commentSlice = createSlice( {
     stopLoading: ( state ) => {
       state.isLoading = false
     },
-    fetchComments: ( state, action ) => {
+    setComments: ( state, action ) => {
       state.comments = action.payload
       state.isLoading = false
     },

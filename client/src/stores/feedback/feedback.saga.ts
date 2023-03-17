@@ -10,7 +10,7 @@ function* fetchByUser() {
   yield put( feedbackActions.startLoading() )
 
   const {data}: AxiosResponse<Feedback[]> = yield call( () => feedbackAPI.getByUser() )
-  yield put( feedbackActions.fetchFeedbacks( data ) )
+  yield put( feedbackActions.setFeedbacks( data ) )
 
   yield put( feedbackActions.stopLoading() )
 }

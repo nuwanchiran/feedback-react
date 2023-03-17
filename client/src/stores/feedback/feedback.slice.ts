@@ -16,7 +16,7 @@ export const feedbackSlice = createSlice( {
     stopLoading: ( state ) => {
       state.isLoading = false
     },
-    fetchFeedbacks: ( state, action ) => {
+    setFeedbacks: ( state, action ) => {
       state.feedbacks = action.payload
     },
     addFeedback: ( state, action ) => {

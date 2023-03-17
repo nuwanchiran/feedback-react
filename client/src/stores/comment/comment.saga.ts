@@ -11,7 +11,7 @@ function* fetchByFeedback( action: PayloadAction<{feedback: Feedback}> ) {
   yield put( commentActions.startLoading() )
 
   const {data}: AxiosResponse<Comment[]> = yield call( () => commentAPI.getByFeedback( action.payload.feedback ) )
-  yield put( commentActions.fetchComments( data ) )
+  yield put( commentActions.setComments( data ) )
 
   yield put( commentActions.stopLoading() )
 }
