@@ -1,8 +1,8 @@
-import {Feedback} from './../feedback/feedback.type';
 import {PayloadAction} from '@reduxjs/toolkit';
 import {AxiosResponse} from 'axios';
-import {call, put, takeEvery} from 'redux-saga/effects';
+import {call, put, takeLatest} from 'redux-saga/effects';
 import commentAPI from '../../services/commentAPI';
+import {Feedback} from './../feedback/feedback.type';
 import {commentActions} from './comment.slice';
 import {Comment} from './comment.type';
 
@@ -37,21 +37,10 @@ function* remove( action: PayloadAction<{comment: Comment}> ) {
   yield put( commentActions.stopLoading() )
 }
 
-// sagas
-function* getCommentsByFeedback() {
-  yield takeEvery( "comment/getByFeedback", fetchByFeedback )
-}
-function* addComment() {
-  yield takeEvery( "comment/add", add )
-}
-function* deleteComment() {
-  yield takeEvery( "comment/delete", remove )
+function* commentWatcher() {
+  yield takeLatest( "comment/getByFeedback", fetchByFeedback )
+  yield takeLatest( "comment/add", add )
+  yield takeLatest( "comment/delete", remove )
 }
 
-const commentsSages = {
-  getCommentsByFeedback,
-  addComment,
-  deleteComment
-}
-
-export default commentsSages
+export default commentWatcher
