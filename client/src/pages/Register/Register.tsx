@@ -1,5 +1,6 @@
 import {FormEventHandler} from 'react';
 import {FaUser} from 'react-icons/fa';
+import {useNavigate} from 'react-router-dom';
 import AppButton from '../../components/atoms/AppButton/AppButton';
 import AppInput from '../../components/atoms/AppInput/AppInput';
 import Container from '../../components/templates/Container/Container';
@@ -11,6 +12,7 @@ type Props = {}
 
 const Register = ( props: Props ) => {
   const {theme} = useTheme()
+  const navigate = useNavigate()
 
   const {
     form,
@@ -26,6 +28,7 @@ const Register = ( props: Props ) => {
   const handleSubmit: FormEventHandler = ( e ) => {
     e.preventDefault()
     handleRegister()
+    navigate("/dashboard")
   }
 
   return (
