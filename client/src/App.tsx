@@ -6,15 +6,12 @@ import Header from './components/organisms/Header/Header'
 import ThemeContextProvider from './contexts/ThemeContext'
 
 import en from 'javascript-time-ago/locale/en.json'
-import {lazy, Suspense} from 'react'
-
-const Home = lazy(()=>import('./pages/Home/Home'))
-const Login = lazy(()=>import('./pages/Login/Login'))
-const Register = lazy(()=>import('./pages/Register/Register'))
-const Dashboard = lazy(()=>import('./pages/Dashboard/Dashboard'))
+import Dashboard from './pages/Dashboard/Dashboard'
+import Home from './pages/Home/Home'
+import Login from './pages/Login/Login'
+import Register from './pages/Register/Register'
 
 TimeAgo.addDefaultLocale(en)
-
 
 type Props = {}
 
@@ -24,14 +21,12 @@ const App = ( props: Props ) => {
       <ThemeContextProvider>
         <Router>
           <Header />
-          <Suspense fallback={<div>loading...</div>}>
-            <Routes>
-              <Route path='*' element={<Home />} />
-              <Route path='/dashboard/*' element={<Dashboard />} />
-              <Route path='/login' element={<Login />} />
-              <Route path='/register' element={<Register />} />
-            </Routes>
-          </Suspense>
+          <Routes>
+            <Route path='*' element={<Home />} />
+            <Route path='/dashboard/*' element={<Dashboard />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Register />} />
+          </Routes>
         </Router>
       </ThemeContextProvider>
       <ToastContainer />
