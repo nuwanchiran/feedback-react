@@ -2,7 +2,6 @@ import {lazy, Suspense, useEffect} from 'react'
 import {Route, Routes, useNavigate} from 'react-router-dom'
 import Container from '../../components/templates/Container/Container'
 import useAuth from '../../hooks/useAuth'
-import useFeedback from '../../hooks/useFeedback'
 import useTheme from '../../hooks/useTheme'
 import s from './Dashboard.module.scss'
 
@@ -16,11 +15,6 @@ const Dashboard = ( props: Props ) => {
   const {theme} = useTheme()
   const navigate = useNavigate()
   const {user} = useAuth()
-  const {isError, message} = useFeedback()
-
-  useEffect( () => {
-    if ( isError ) console.error( message )
-  }, [isError, message] )
 
   useEffect( () => {
     if ( !user ) navigate( '/login' )

@@ -12,7 +12,7 @@ const CommentItem = (props: Props) => {
   const dispatch = useDispatch()
   
   const handleRemoveComment = () => { 
-    dispatch({type: CommentActionType.delete, payload: {comment:props}})
+    dispatch({type: CommentActionType.remove, payload: {comment:props}})
   }
 
   return (

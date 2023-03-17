@@ -4,8 +4,7 @@ import {useDispatch} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 import useTheme from '../../../hooks/useTheme'
 import {AppDispatch} from '../../../stores'
-import {deleteFeedback} from '../../../stores/feedback/feedback.thunk'
-import {Feedback} from '../../../stores/feedback/feedback.type'
+import {Feedback, FeedbackActionType} from '../../../stores/feedback/feedback.type'
 import FeedbackTypeBadge from '../../atoms/FeedbackTypeBadge/FeedbackTypeBadge'
 import VoteHandler from '../../molecules/VoteHandler/VoteHandler'
 import s from './FeedbackCard.module.scss'
@@ -18,7 +17,7 @@ const FeedbackCard = ( props: Props ) => {
 
   const handleDelete: MouseEventHandler = ( e ) => {
     e.stopPropagation()
-    dispatch( deleteFeedback( props ) )
+    dispatch( {type:FeedbackActionType.remove, payload:{feedback:props}} )
   }
 
   const handleEdit: MouseEventHandler = ( e ) => {

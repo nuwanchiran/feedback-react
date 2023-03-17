@@ -4,7 +4,6 @@ import {CommentStateType} from './comment.type';
 const initialState: CommentStateType = {
   comments: [],
   isLoading: false,
-  message: '' as unknown
 }
 
 export const commentSlice = createSlice( {
@@ -17,11 +16,11 @@ export const commentSlice = createSlice( {
     stopLoading: ( state ) => {
       state.isLoading = false
     },
-    fetchComment: ( state, action ) => {
+    fetchComments: ( state, action ) => {
       state.comments = action.payload
       state.isLoading = false
     },
-    addComments: ( state, action ) => {
+    addComment: ( state, action ) => {
       state.comments.push( action.payload )
     },
     deleteComment: ( state, action ) => {

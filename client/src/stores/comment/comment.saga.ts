@@ -11,7 +11,7 @@ function* fetchByFeedback( action: PayloadAction<{feedback: Feedback}> ) {
   yield put( commentActions.startLoading() )
 
   const {data}: AxiosResponse<Comment[]> = yield call( () => commentAPI.getByFeedback( action.payload.feedback ) )
-  yield put( commentActions.fetchComment( data ) )
+  yield put( commentActions.fetchComments( data ) )
 
   yield put( commentActions.stopLoading() )
 }
@@ -21,12 +21,12 @@ function* add( action: PayloadAction<{comment: Comment}> ) {
   yield put( commentActions.startLoading() )
 
   const {data}: AxiosResponse<Comment[]> = yield call( () => commentAPI.addComment( action.payload.comment ) )
-  yield put( commentActions.addComments( data ) )
+  yield put( commentActions.addComment( data ) )
 
   yield put( commentActions.stopLoading() )
 }
 
-// delete
+// remove
 function* remove( action: PayloadAction<{comment: Comment}> ) {
   yield put( commentActions.startLoading() )
 
@@ -40,7 +40,7 @@ function* remove( action: PayloadAction<{comment: Comment}> ) {
 function* commentWatcher() {
   yield takeLatest( CommentActionType.getByFeedback, fetchByFeedback )
   yield takeLatest( CommentActionType.add, add )
-  yield takeLatest( CommentActionType.delete, remove )
+  yield takeLatest( CommentActionType.remove, remove )
 }
 
 export default commentWatcher

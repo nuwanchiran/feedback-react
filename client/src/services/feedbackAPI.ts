@@ -12,14 +12,14 @@ const add = async ( feedback: Feedback ) =>
 const edit = async ( feedback: Feedback ) =>
   await api.put( URL, feedback )
 
-const deleteOne = async ( feedback: Feedback ) =>
+const remove = async ( feedback: Feedback ) =>
   await api.delete( URL + feedback._id )
 
 const feedbackAPI = {
   getByUser,
   add,
   edit,
-  deleteOne
+  remove
 }
 
 export default feedbackAPI

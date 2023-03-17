@@ -1,14 +1,13 @@
 import {ChangeEventHandler, FormEvent, useState} from 'react'
 import {useDispatch} from 'react-redux'
 import {useLocation, useNavigate} from 'react-router-dom'
-import useFeedback from '../../../../hooks/useFeedback'
-import {AppDispatch} from '../../../../stores'
-import {addFeedback, editFeedback} from '../../../../stores/feedback/feedback.thunk'
-import {Feedback} from '../../../../stores/feedback/feedback.type'
 import AppButton from '../../../../components/atoms/AppButton/AppButton'
 import AppInput from '../../../../components/atoms/AppInput/AppInput'
 import AppSelect from '../../../../components/atoms/AppSelect/AppSelect'
 import AppTextarea from '../../../../components/atoms/AppTextArea/AppTextarea'
+import useFeedback from '../../../../hooks/useFeedback'
+import {AppDispatch} from '../../../../stores'
+import {Feedback, FeedbackActionType} from '../../../../stores/feedback/feedback.type'
 import s from './FeedbackForm.module.scss'
 
 type Props = {}
@@ -34,9 +33,9 @@ const FeedbackForm = ( props: Props ) => {
     e.preventDefault()
 
     if ( form._id ) {
-      dispatch( editFeedback( form ) )
+      dispatch( {type: FeedbackActionType.edit,payload:{feedback:form}} )
     } else {
-      dispatch( addFeedback( form ) )
+      dispatch( {type: FeedbackActionType.add,payload:{feedback:form}} )
     }
 
     navigate( '/dashboard' )

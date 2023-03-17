@@ -1,16 +1,15 @@
 import {lazy, Suspense, useMemo, useState} from 'react'
 import {useDispatch} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
+import AppButton from '../../../../components/atoms/AppButton/AppButton'
+import AppInput from '../../../../components/atoms/AppInput/AppInput'
 import useAuth from '../../../../hooks/useAuth'
 import useDebounce from '../../../../hooks/useDebounce'
 import useEffectOnce from '../../../../hooks/useEffectOnce'
 import useFeedback from '../../../../hooks/useFeedback'
 import {AppDispatch} from '../../../../stores'
-import {getAllFeedbacks} from '../../../../stores/feedback/feedback.thunk'
-import AppButton from '../../../../components/atoms/AppButton/AppButton'
-import AppInput from '../../../../components/atoms/AppInput/AppInput'
+import {Feedback, FeedbackActionType} from '../../../../stores/feedback/feedback.type'
 import s from './FeedbackList.module.scss'
-import {Feedback} from '../../../../stores/feedback/feedback.type'
 
 const FeedbackCard = lazy( () => import( '../../../../components/organisms/FeedbackCard/FeedbackCard' ) )
 
@@ -27,7 +26,7 @@ const FeedbackList = ( _props: Props ) => {
 
   // init data load
   useEffectOnce( () => {
-    dispatch( getAllFeedbacks() )
+    dispatch( {type:FeedbackActionType.fetchAll} )
   } )
 
   const searchResults = useMemo( () =>

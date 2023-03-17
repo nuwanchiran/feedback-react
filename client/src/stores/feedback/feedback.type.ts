@@ -13,8 +13,12 @@ export type Feedback = {
 
 export type FeedbackStateType = {
   feedbacks: Feedback[];
-  isError: boolean,
-  isSuccess: boolean,
   isLoading: boolean,
-  message: unknown
+}
+
+export enum FeedbackActionType {
+  add = "feedbacks/add",
+  edit = "feedbacks/edit",
+  remove = "feedbacks/remove",
+  fetchAll = "feedbacks/fetchAll"
 }
