@@ -1,6 +1,5 @@
 import {FormEventHandler} from 'react';
 import {FaSignInAlt} from 'react-icons/fa';
-import {useNavigate} from 'react-router-dom';
 import AppButton from '../../components/atoms/AppButton/AppButton';
 import AppInput from '../../components/atoms/AppInput/AppInput';
 import Container from '../../components/templates/Container/Container';
@@ -15,12 +14,10 @@ const Login = ( props: Props ) => {
 
   const {isLoading, form, handleFormChange, handleLogin} = useAuth()
   const {email, password} = form
-  const navigate = useNavigate()
 
   const handleSubmit: FormEventHandler = ( e ) => {
     e.preventDefault()
     handleLogin()
-    navigate("/dashboard")
   }
 
   return (

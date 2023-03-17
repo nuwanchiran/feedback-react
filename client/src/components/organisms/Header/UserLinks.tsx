@@ -1,5 +1,5 @@
 import {AiOutlineDashboard, AiOutlinePoweroff} from 'react-icons/ai'
-import {NavLink, useNavigate} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import useAuth from '../../../hooks/useAuth'
 import AppProfile from '../../atoms/AppProfile/AppProfile'
 import s from './Header.module.scss'
@@ -7,12 +7,10 @@ import s from './Header.module.scss'
 type Props = {}
 
 const UserLinks = ( props: Props ) => {
-  const navigate = useNavigate()
   const {user,handleLogout} = useAuth()
 
   const logout = () => {
     handleLogout()
-    navigate( '/' )
   }
 
   const styleChange = ( {isActive}: {isActive: boolean} ) => isActive ? s.activeLink : s.link
